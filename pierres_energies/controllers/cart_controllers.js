@@ -60,7 +60,7 @@ module.exports.add_cart_item = async (req,res) => {
     }
 }
 
-module.exports.delete_item = async (req,res) => {
+module.exports.remove_cart_item= async (req,res) => {
     const userId = req.params.userId;
     const productId = req.params.itemId;
     try{

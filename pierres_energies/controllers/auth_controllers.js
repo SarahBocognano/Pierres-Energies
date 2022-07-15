@@ -24,29 +24,29 @@ module.exports.signup = (req,res) => {
 
     // Génération d'un hash de mot de passe et des tours de sel de notre mot de passe puis sauvegarde de l'utilisateur dans la base de données avec un token unique
     bcrypt.genSalt(10, (err, salt) => {
-        bcrypt.hash(password, salt, (err,hash) => {
-            if(err) throw err;
-            newUser.password = hash;
-            newUser.save()
-                .then(user => {
-                    jwt.sign(
-                        {id: user._id},
-                        config.get('jtwsecret'),
-                        {expiresIn: 3600},
-                        (err, token)  => {
-                            if(err) throw err;
-                            res.json({
-                                token,
-                                user: {
-                                    id: user._id,
-                                    name: user.name,
-                                    email: user.email
-                                }
-                            })
-                        }
-                    )
-                })
+      bcrypt.hash(password, salt, (err,hash) => {
+      if(err) throw err;
+      newUser.password = hash;
+      newUser.save()
+        .then(user => {
+          jwt.sign(
+            {id: user._id},
+            config.get('jtwsecret'),
+            {expiresIn: 3600},
+            (err, token)  => {
+              if(err) throw err;
+              res.json({
+                token,
+                user: {
+                  id: user._id,
+                  name: user.name,
+                  email: user.email
+                }
+              })
+            }
+          )
         })
+      })
     })
 }
 
