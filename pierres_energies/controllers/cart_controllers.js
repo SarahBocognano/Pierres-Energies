@@ -61,22 +61,22 @@ module.exports.add_cart_item = async (req,res) => {
 }
 
 module.exports.remove_cart_item= async (req,res) => {
-    const userId = req.params.userId;
-    const productId = req.params.itemId;
-    try{
-        let cart = await Cart.findOne({userId});
-        let itemIndex = cart.items.findIndex(p => p.productId == productId);
-        if(itemIndex > -1)
-        {
-            let productItem = cart.items[itemIndex];
-            cart.bill -= productItem.quantity*productItem.price;
-            cart.items.splice(itemIndex,1);
-        }
-        cart = await cart.save();
-        return res.status(201).send(cart);
+  const userId = req.params.userId;
+  const productId = req.params.itemId;
+  try {
+    let cart = await Cart.findOne({userId});
+    let itemIndex = cart.items.findIndex(p => p.productId == productId);
+    if(itemIndex > -1)
+    {
+      let productItem = cart.items[itemIndex];
+      cart.bill -= productItem.quantity*productItem.price;
+      cart.items.splice(itemIndex,1);
     }
-    catch (err) {
-        console.log(err);
-        res.status(500).send("Something went wrong");
-    }
+    cart = await cart.save();
+    return res.status(201).send(cart);
+  }
+  catch (err) {
+    console.log(err);
+    res.status(500).send("Something went wrong");
+  }
 }
