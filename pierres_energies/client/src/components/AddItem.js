@@ -11,8 +11,7 @@ import {
 import { connect } from 'react-redux';
 import { addItem } from '../actions/itemActions';
 import PropTypes from 'prop-types';
-import AppNavbar from './AppNavbar';
-import { REGISTER_FAIL } from '../actions/type';
+import AppNavbar from './AddNavbar';
 
 class AddItem extends Component {
   state = {

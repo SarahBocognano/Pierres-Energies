@@ -65,7 +65,7 @@ export const login = ({email, password}) => dispatch => {
 
   // request body
   
-  const body = JSON.stringify({name, email, password});
+  const body = JSON.stringify({email, password});
 
   axios.post('/api/login', body, config)
   .then(res => dispatch({
@@ -78,6 +78,12 @@ export const login = ({email, password}) => dispatch => {
       type: LOGIN_FAIL
     })
   })
+}
+
+export const logout = () => {
+  return {
+    type: LOGOUT_SUCCESS,
+  }
 }
 
 // Setups Config/Headers and Token
