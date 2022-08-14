@@ -1,7 +1,7 @@
 import { Component } from 'react';
 import AddItem from './AddItem';
 import Home from './Home';
-import { Route, Navigate, Routes, BrowserRouter } from 'react-router-dom';
+import { Route, Redirect, BrowserRouter, withRouter, Switch } from 'react-router-dom';
 import { connect } from 'react-redux';
 import Cart from './Cart';
 import Orders from './Orders';
@@ -11,7 +11,7 @@ class Main extends Component {
     return (
       <div>
         <BrowserRouter>
-          <Routes>
+          <Switch>
             <Route path='/home'>
               <Home />
             </Route>
@@ -24,8 +24,8 @@ class Main extends Component {
             <Route path='/orders'>
               <Orders />
             </Route>
-            <Route path='/' element={<Navigate replace to='/home' />} />
-          </Routes>
+            <Route path='/' element={< Redirect replace to='/home' />} />
+          </Switch>
         </BrowserRouter>
       </div>
     )

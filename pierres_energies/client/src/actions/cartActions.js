@@ -1,6 +1,6 @@
 import axios from 'axios';
 import { returnErrors } from './errorActions';
-import { GET_CART, ADD_TO_CART, DELETE_FROM_CART, CART_LOADING } from './type';
+import { GET_CART, ADD_TO_CART, DELETE_FROM_CART, CART_LOADING } from './types';
 
 export const getCart = (id) => dispatch => {
   dispatch(setCartLoading());

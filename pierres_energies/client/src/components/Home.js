@@ -1,6 +1,6 @@
 import { Component } from 'react';
 import AppNavBar from './AddNavbar';
-import { Card, CardText, CardBody, CardTitle, Cardsubtitle, Button, Container, Alert } from 'reactstrap';
+import { Card, CardText, CardBody, CardTitle, CardSubtitle, Button, Container, Alert } from 'reactstrap';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getItems } from '../actions/itemActions';
@@ -40,7 +40,7 @@ class Home extends Component {
                   <CardBody>
                     <CardTitle tag='h5'>{item.title}</CardTitle>
                     <CardSubtitle tag='h6'>Rs. {item.price}</CardSubtitle>
-                    <Cardtext>{item.category}</Cardtext>
+                    <CardText>{item.category}</CardText>
                     {this.props.isAuthenticated ?
                       <Button color="success" size="sm" onClick={this.onAddToCart.bind(this, user._id, item._id)}>
                         Add To Card

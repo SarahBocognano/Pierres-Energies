@@ -1,10 +1,9 @@
-import './App.css';
 import { Component } from 'react';
 import { Provider } from 'react-redux';
-import Main from './components/Main';
 import store from './store';
 import {loadUser} from './actions/authActions';
 import { BrowserRouter } from 'react-router-dom';
+import Main from './components/Main';
 
 class App extends Component {
   componentDidMount() {

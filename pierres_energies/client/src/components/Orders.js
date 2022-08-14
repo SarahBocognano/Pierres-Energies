@@ -3,7 +3,7 @@ import AppNavBar from './AddNavbar';
 import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { getOrders } from '../actions/orderActions';
-import { Card, CardText, CardBody, CardTitle, CardSubtitle, Button, Alert, Container } from 'reactstrap';
+import { Card, CardBody, CardTitle, CardSubtitle, Alert, Container } from 'reactstrap';
 
 class Orders extends Component {
 

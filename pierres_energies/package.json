@@ -21,6 +21,7 @@
     "jsonwebtoken": "^8.5.1",
     "mongoose": "^5.11.11",
     "prop-types": "^15.8.1",
+    "react-router-dom": "^5.3.3",
     "redux": "^4.2.0",
     "stripe": "^8.222.0",
     "validator": "^13.5.2"

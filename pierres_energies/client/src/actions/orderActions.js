@@ -1,9 +1,9 @@
 import axios from 'axios';
 import { returnErrors } from './errorActions';
-import { GET_ORDERS, CHECKOUT, ORDERS_LOADING } from './type';
+import { GET_ORDERS, CHECKOUT, ORDERS_LOADING } from './types';
 
 export const getOrders = (id) => dispatch => {
-  dispatch(setOrdersLoading());
+  dispatch(ordersLoading());
   axios.get(`/api/orders/${id}`)
   .then(res => dispatch({
     type: GET_ORDERS,

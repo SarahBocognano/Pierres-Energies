@@ -9,13 +9,13 @@ import {
   LOGOUT_SUCCESS, 
   REGISTER_SUCCESS, 
   REGISTER_FAIL
-} from './type';
+} from './types';
 
 export const loadUser = () => (dispatch, getState) => {
   // User Loading
   dispatch({type: USER_LOADING});
 
-  axios.get('/api/users', tokenCongif(getState))
+  axios.get('/api/users', tokenConfig(getState))
   .then(res => dispatch({
     type: USER_LOADED,
     payload: res.data
@@ -86,22 +86,21 @@ export const logout = () => {
   }
 }
 
-// Setups Config/Headers and Token
-
+// Setup config/headers and token
 export const tokenConfig = getState => {
-  // Recupération du token dans le localStorage
-  const token = getState().auth.token;
+    //Get token from local storage
+    const token = getState().auth.token;
 
-  // Headers
-
-  const config = {
-    headers: {
-      "Content-Type": "application/json",
+    // Headers
+    const config = {
+        headers:{
+            "Content-type": "application/json",
+        }
     }
-  }
 
-  if(token) {
-    config.headers['x-auth-token'] = token;
-  }
-  return config;
+    if(token){
+        config.headers['x-auth-token'] = token;
+    }
+
+    return config;
 }
