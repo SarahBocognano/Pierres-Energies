@@ -1,4 +1,4 @@
-import { GET_ORDERS, CHECKOUT, ORDERS_LOADING } from "../actions/type";
+import { GET_ORDERS, CHECKOUT, ORDERS_LOADING } from "../actions/types";
 
 const initialState = {
   orders: [],
