@@ -7,9 +7,11 @@ const initialState = {};
 
 const middleWare = [thunk];
 
-const composeEnhancers = indow.__REDUX_DEVTOOLS_EXTENSION__&&window.__REDUX_DEVTOOLS_EXTENSION__() || compose;
-const store = configureStore (combineReducers, composeEnhancers(
-    applyMiddleware(...middleWare),
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__() || compose;
+const store = configureStore (
+    {reducer:combineReducers},
+    composeEnhancers(
+      applyMiddleware(...middleWare),
 ));
 
 export default store;
